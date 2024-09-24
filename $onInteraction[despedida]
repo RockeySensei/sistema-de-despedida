@@ -1,0 +1,69 @@
+prefix: $onInteraction[despedida]
+
+
+$if[$message==Variables]
+$title[Variables]
+$description[
+Aquí están los alias utilizados.
+──────────────]
+$addField[{member.name};Ejemplo : $username;yes]
+$addField[{member.tag};Ejemplo : $discriminator[];yes]
+$addField[{member.mention};Ejemplo : <@$authorID>;yes]
+$addField[{member.ID};Ejemplo : $authorID;yes]
+$addField[{Member.Full.Name};Ejemplo : $username#discriminator;yes]
+$addField[{member.date};Ejemplo :  <t:$calculate[($authorID / 4194304 + 1420070400000) / 1000]:R> ;yes]
+$addField[{member.date.join};Ejemplo : $userJoined[$authorID;lunes 2 de enero de 2006 3:04] ;yes]
+$addField[{member.count};Ejemplo : $membersCount;yes]
+$addField[{guild.name};Ejemplo : $serverName[$guildID];yes]
+$addField[{guild.ID};Ejemplo : $guildID;yes]
+$addField[{guild.date};Ejemplo : <t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]:R>;yes]
+$addField[{Owner.name};Ejemplo :$username[$serverOwner] ;yes]
+$addField[{Owner.mention};Ejemplo : <@$serverOwner>;yes]
+$addField[{Owner.ID};Ejemplo : $serverOwner;yes]
+$color[fffff]
+$addTimestamp
+$onlyPerms[manageserver;; ¡Necesitas administrar los permisos del servidor para configurar esto!]
+$footer[Establecido por $username[$authorID]#$discriminator[$authorID]]
+$thumbnail[$authorAvatar]
+$author[Leave]
+$authorIcon[$authorAvatar]
+$footerIcon[$authorAvatar]
+$endif
+$endif
+$endif
+$nomention
+$if[$message==canal]
+$awaitFunc[CanalDespedida;$authorID]
+$channelSendMessage[$channelID;¿Cuál será el canal de despedida?]
+$endif
+
+
+$if[$message==NewMensaje]
+$channelSendMessage[$channelID;¿Cuál será el mensaje despedida?]
+$awaitFunc[NewMensaje;$authorID] 
+$endif
+$endif
+
+
+
+
+
+$if[$message==mensaje]
+$title[**Aquí está el mensaje de despedida.**]
+$description[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$getServerVar[mensajeDPD];{member.name};$username;-1];{member.mention};<@$authorID>;-1];{member.count};$membersCount;-1];{member.tag};$discriminator[];-1];{Member.Full.Name};$username#$discriminator[];-1];{guild.name};$serverName[$guildID];-1];{guild.ID};$guildID;-1];{Owner.name};$username[$serverOwner];-1];{Owner.mention};<@$serverOwner>;-1];{Owner.ID};$serverOwner;-1];{guild.date};<t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]:R>;-1];{member.date};<t:$calculate[($authorID / 4194304 + 1420070400000) / 1000]:R>;-1];{member.date.join};<t:$getTimestamp:R>;-1];{member.ID};$authorID;-1]]
+$author[adios]
+$footer[adioz]
+$authorIcon[$authorAvatar]
+$footerIcon[$authorAvatar]
+$thumbnail[$authorAvatar]
+$color[fffff]
+$image[$getServerVar[g]]
+$endif
+$endif
+
+
+$endif
+$suppressErrors
+
+
+
