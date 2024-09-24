@@ -1,0 +1,19 @@
+prefix: $awaitedCommand[CanalDespedida;]
+
+
+
+$nomention
+$if[$mentionedChannels[1]!=]
+$setServerVar[despedida;$mentionedChannels[1]]
+$description[El canal de despedida ha sido modificado en <#$mentionedChannels[1]> !]
+$color[fffff]
+$deletecommand
+$clear[1]
+$else
+$description[No se encontraron canales para $message[1] !]
+$color[fffff]
+$deletecommand
+$clear[1]
+$endif
+$endif
+$endif 
