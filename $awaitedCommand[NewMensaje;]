@@ -1,0 +1,38 @@
+prefix: $awaitedCommand[NewMensaje;]
+
+
+$nomention
+$if[$message==&help-var]
+$onlyPerms[administrar canales; <@$authorID> Necesitas permisos de ``Administrar canales``, gracias.]
+$title[Variables]
+$description[
+Aquí están los alias utilizados.
+──────────────]
+$addField[{member.name};Example : $username;yes]
+$addField[{member.tag};Example : $discriminator[];yes]
+$addField[{member.mention};Example : <@$authorID>;yes]
+$addField[{member.ID};Example : $authorID;yes]
+$addField[{Member.Full.Name};Example : $username#discriminator;yes]
+$addField[{member.date};Example :  <t:$calculate[($authorID / 4194304 + 1420070400000) / 1000]:R> ;yes]
+$addField[{member.date.join};Example : $userJoined[$authorID;Monday 2 January 2006 3:04] ;yes]
+$addField[{member.count};Example : $membersCount;yes]
+$addField[{guild.name};Example : $serverName[$guildID];yes]
+$addField[{guild.ID};Example : $guildID;yes]
+$addField[{guild.date};Example : <t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]:R>;yes]
+$addField[{Owner.name};Example :$username[$serverOwner] ;yes]
+$addField[{Owner.mention};Example : <@$serverOwner>;yes]
+$addField[{Owner.ID};Example : $serverOwner;yes]
+$color[fffff]
+$addTimestamp
+$onlyPerms[manageserver;Necesitas administrar los permisos del servidor para configurar esto. !]
+$footer[Establecido por $username[$authorID]#$discriminator[$authorID]]
+$thumbnail[$authorAvatar]
+$author[Leave]
+$authorIcon[$authorAvatar]
+$footerIcon[$authorAvatar]
+$else
+$clear[1]
+$setServerVar[mensajeDPD;$message]
+$description[El nuevo mensaje ahora será ```$message```]
+$color[fffff]
+$endif
