@@ -1,0 +1,15 @@
+prefix: $onLeave[$getServerVar[despedida]]
+
+
+$nomention
+$c[Mensaje de despedida]
+
+$title[Adios $username__]
+$description[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$replaceText[$getServerVar[mensajeDPD];{member.name};$username;-1];{member.mention};<@$authorID>;-1];{member.count};$membersCount;-1];{member.tag};$discriminator[];-1];{Member.Full.Name};$username#$discriminator[];-1];{guild.name};$serverName[$guildID];-1];{guild.ID};$guildID;-1];{Owner.name};$username[$serverOwner];-1];{Owner.mention};<@$serverOwner>;-1];{Owner.ID};$serverOwner;-1];{guild.date};<t:$calculate[($guildID / 4194304 + 1420070400000) / 1000]:R>;-1];{member.date};<t:$calculate[($authorID / 4194304 + 1420070400000) / 1000]:R>;-1];{member.date.join};<t:$getTimestamp:R>;-1];{member.ID};$authorID;-1]]
+$image[$getServerVar[g]]
+$addTimestamp
+$color[fffff]
+
+
+
+
