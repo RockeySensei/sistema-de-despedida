@@ -1,0 +1,27 @@
+prefix !set despedida
+
+
+$nomention
+$if[$isAdmin[$authorID]==false]
+$title[]
+$description[`❌` Error: No tienes permisos de administrador`]
+$color[ff0000]
+$endif
+$addField[**Mensaje de despedida**;
+$getServerVar[mensajeDPD]]
+$addField[**canal de despedida**;$if[$getServerVar[despedida]==0] Sin canal
+$else <#$findChannel[$getServerVar[despedida]]>
+$endif]
+
+$newSelectMenu[despedida;1;1;Categorías despedida]
+$addSelectMenuOption[despedida;Categorías despedida;inicio;Vuelve al Inicio;yes;]
+
+$addSelectMenuOption[despedida;Página de variables;Variables;Obtener ayuda con las variables;no;📥]
+$addSelectMenuOption[despedida;canal de despedida;canal;Configurar el canal de despedida ;no;🌊]
+$addSelectMenuOption[despedida;Mensaje de despedida;NewMensaje;Establecer un mensaje de despedida ;no;📝]
+
+$addSelectMenuOption[despedida;Avance;mensaje;Vea cómo se ven sus configuraciones;no;🕳️]
+$footer[Tutobot]
+$color[fffff]
+$title[Configuración de despedida]
+$endif
